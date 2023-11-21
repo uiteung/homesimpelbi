@@ -28,4 +28,5 @@ function populateTable(data) {
       `;
     tableBody.appendChild(row);
   });
+  //
 }
