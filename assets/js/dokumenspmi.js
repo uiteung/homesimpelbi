@@ -1,14 +1,5 @@
 import { CihuyWithoutToken } from "https://c-craftjs.github.io/simpelbi/api.js";
 
-const apiUrlDataDokumen = "https://simbe-dev.ulbi.ac.id/api/v1/datadokumen/";
-CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
-  if (error) {
-    console.error("Error fetching data:", error);
-  } else {
-    populateTable(data.data);
-    console.log(data.data);
-  }
-});
 function populateTable(data) {
   const tableBody = document.getElementById("tableBody");
 
@@ -30,3 +21,12 @@ function populateTable(data) {
   });
   //
 }
+const apiUrlDataDokumen = "https://simbe-dev.ulbi.ac.id/api/v1/datadokumen/";
+CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
+  if (error) {
+    console.error("Error fetching data:", error);
+  } else {
+    populateTable(data.data);
+    console.log(data.data);
+  }
+});
