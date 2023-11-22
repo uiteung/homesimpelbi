@@ -21,7 +21,7 @@ function populateTable(data) {
   //
 }
 const apiUrlDataDokumen =
-  "https://simbe-dev.ulbi.ac.id/api/v1/datakepuasandosen/";
+  "https://simbe-dev.ulbi.ac.id/api/v1/datakepuasanmahasiswa/";
 CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
   if (error) {
     console.error("Error fetching data:", error);
