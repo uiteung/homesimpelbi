@@ -32,7 +32,6 @@ CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
 });
 
 function populateNews(data) {
-  // Sort the data based on the 'tanggal' property in descending order
   const sortedData = data.sort(
     (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
   );
