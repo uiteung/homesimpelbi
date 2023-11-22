@@ -32,9 +32,17 @@ CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
 });
 
 function populateNews(data) {
+  // Sort the data based on the 'tanggal' property in descending order
+  const sortedData = data.sort(
+    (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
+  );
+
+  // Select the first three items
+  const selectedData = sortedData.slice(0, 3);
+
   const newsContainer = document.getElementById("newsContainer");
 
-  data.forEach((item) => {
+  selectedData.forEach((item) => {
     const article = document.createElement("div");
     article.className = "w-33percent flex mb-30 px-15 md:w-full";
     article.innerHTML = `
@@ -66,7 +74,6 @@ function populateNews(data) {
     newsContainer.appendChild(article);
   });
 }
-
 // Fetch data from the API
 const apiUrl = "https://simbe-dev.ulbi.ac.id/api/v1/databeritaspmi/";
 CihuyWithoutToken(apiUrl, (error, data) => {
