@@ -13,7 +13,7 @@ function populateTable(data) {
 
         <td class="py-2 px-4 border-b">
           <a href="${
-            item.link_dokumen
+            item.file
           }" class="text-blue-500 hover:underline" download>Download</a>
         </td>
       `;
