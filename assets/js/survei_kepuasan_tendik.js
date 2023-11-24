@@ -48,7 +48,7 @@ function populateNews(data) {
       <article class="lqd-lp relative lqd-lp lqd-lp-style-16 text-start post-${item.id_berita_spmi} post type-post status-publish format-standard has-post-thumbnail hentry category-blog-single tag-beauty">
         <div class="lqd-lp-img rounded-4 overflow-hidden relative mb-2rem">
           <figure class="relative bg-cover bg-center w-full">
-            <img width="720" height="400" src="${item.gambar}" class="w-full" alt="${item.judul}">
+          <img width="720" height="400" src="https://simbe-dev.ulbi.ac.id/static/pictures/${item.gambar}" class="w-full" alt="${item.judul}">
           </figure>
         </div>
         <header class="lqd-lp-header mb-1em">
