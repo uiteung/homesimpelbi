@@ -20,7 +20,8 @@ function populateTable(data) {
   });
   //
 }
-const apiUrlDataDokumen = "https://simbe-dev.ulbi.ac.id/api/v1/standarspmi/"; // jangan lupa ganti ke datastandarspmi
+const apiUrlDataDokumen =
+  "https://simbe-dev.ulbi.ac.id/api/v1/datastandarspmi/"; // jangan lupa ganti ke datastandarspmi
 CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
   if (error) {
     console.error("Error fetching data:", error);
