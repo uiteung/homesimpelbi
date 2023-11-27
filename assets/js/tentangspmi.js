@@ -9,7 +9,7 @@ function createTeamMemberElement(item) {
     "col col-12 col-md-4 flex flex-col items-start text-start p-20 module-col";
   teamMember.innerHTML = `
         <img class="mb-1em" width="660" height="492" src="https://simbe-dev.ulbi.ac.id/static/pictures/${item.foto}" alt="${item.judul}">
-        <h4 class="ld-fh-element relative mb-0/5em text-24 font-bold">${item.judul}</h4>
+        <h4 class="ld-fh-element relative mb-0/5em text-24 font-bold">${item.nama}</h4>
         <div class="ld-fancy-heading p-5 mb-0/6em bg-accent rounded-6">
             <h6 class="ld-fh-element relative p-5 mb-0/5em text-10 uppercase font-normal leading-1em tracking-1 text-gray-400">${item.jabatan}</h6>
         </div>
