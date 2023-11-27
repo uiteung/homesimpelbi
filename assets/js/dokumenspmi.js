@@ -12,7 +12,7 @@ function populateTable(data) {
         <td class="py-2 px-4 border-b">${item.tanggal}</td>
 
         <td class="py-2 px-4 border-b">
-          <a href="${
+          <a href="https://simbe-dev.ulbi.ac.id/static/pictures/${
             item.file
           }" class="text-blue-500 hover:underline" download>Download</a>
         </td>
