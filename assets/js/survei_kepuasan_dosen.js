@@ -30,7 +30,6 @@ CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
     console.log(data.data);
   }
 });
-
 function populateNews(data) {
   const sortedData = data.sort(
     (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
@@ -55,7 +54,7 @@ function populateNews(data) {
               <p>${item.isi}</p>
             </div>
             <footer class="lqd-lp-footer relative z-2">
-              <a href="#" class="btn btn-naked uppercase tracking-0/1em size-sm font-bold lqd-lp-read-more items-center text-12">
+              <a href="detail_berita.html?id=${item.id_berita_spmi}" class="btn btn-naked uppercase tracking-0/1em size-sm font-bold lqd-lp-read-more items-center text-12">
                 <span class="btn-line btn-line-before inline-block relative text-secondary text-12"></span>
                 <span class="btn-txt inline-block text-secondary">Continue Reading</span>
                 <span class="btn-line btn-line-after inline-block text-secondary relative">
@@ -70,6 +69,7 @@ function populateNews(data) {
     newsContainer.appendChild(article);
   });
 }
+
 // Fetch data from the API
 const apiUrl = "https://simbe-dev.ulbi.ac.id/api/v1/databeritaspmi/";
 CihuyWithoutToken(apiUrl, (error, data) => {
