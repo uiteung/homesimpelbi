@@ -20,9 +20,8 @@ function populateTable(data) {
   });
   //
 }
-const apiUrlDataDokumen =
-  "https://simbe-dev.ulbi.ac.id/api/v1/dataformulirspmi/";
-CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
+const apiFormulirSpmi = "https://simbe-dev.ulbi.ac.id/api/v1/dataformulirspmi/";
+CihuyWithoutToken(apiFormulirSpmi, (error, data) => {
   if (error) {
     console.error("Error fetching data:", error);
   } else {
