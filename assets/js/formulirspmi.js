@@ -18,7 +18,6 @@ function populateTable(data) {
       `;
     tableBody.appendChild(row);
   });
-  //
 }
 const apiFormulirSpmi = "https://simbe-dev.ulbi.ac.id/api/v1/dataformulirspmi/";
 CihuyWithoutToken(apiFormulirSpmi, (error, data) => {
