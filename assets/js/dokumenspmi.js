@@ -7,7 +7,7 @@ function populateTable(data) {
     const row = document.createElement("tr");
     row.innerHTML = `
         <td class="py-2 px-4 border-b">${index + 1}</td>
-        <td class="py-2 px-4 border-b">${item.judul}</td>
+        <td class="py-2 px-4 border-b">${item.nama_dokumen}</td>
         <td class="py-2 px-4 border-b">${item.keterangan}</td>
         <td class="py-2 px-4 border-b">${item.tanggal}</td>
 
