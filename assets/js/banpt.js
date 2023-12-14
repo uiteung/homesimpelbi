@@ -1,24 +1,21 @@
 import { CihuyWithoutToken } from "https://c-craftjs.github.io/simpelbi/api.js";
-
 function populateTable(data) {
   const tableBody = document.getElementById("tableBody");
 
   data.forEach((item, index) => {
     const row = document.createElement("tr");
     row.innerHTML = `
+        <td class="py-2 px-4 border-b">${item.nama_sk_sertifikat}</td>
         <td class="py-2 px-4 border-b">${index + 1}</td>
-        <td class="py-2 px-4 border-b">${item.judul}</td>
-        <td class="py-2 px-4 border-b">${item.file}</td>
-
-        <td class="py-2 px-4 border-b">
-          <a href="https://simbe-dev.ulbi.ac.id/static/pictures/${
-            item.file
-          }" class="text-blue-500 hover:underline" download>Download</a>
-        </td>
+        <td class="py-2 px-4 border-b">${item.prodi}</td>
+        <td class="py-2 px-4 border-b">${item.jenjang}</td>
+        <td class="py-2 px-4 border-b">${item.nilai}</td>
+        <td class="py-2 px-4 border-b">${item.masa_berlaku_start} - ${
+      item.masa_berlaku_end
+    }</td>
       `;
     tableBody.appendChild(row);
   });
-  //
 }
 const apiUrlDataDokumen = "https://simbe-dev.ulbi.ac.id/api/v1/databanpt/";
 CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
@@ -29,6 +26,7 @@ CihuyWithoutToken(apiUrlDataDokumen, (error, data) => {
     console.log(data.data);
   }
 });
+
 function populateNews(data) {
   const sortedData = data.sort(
     (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
@@ -78,3 +76,5 @@ CihuyWithoutToken(apiUrl, (error, data) => {
     populateNews(data.data);
   }
 });
+
+const apibanpt = " https://simbe-dev.ulbi.ac.id/api/v1/databanpt/";
