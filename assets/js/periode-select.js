@@ -14,24 +14,29 @@ document.getElementById("submitButton").addEventListener("click", function (e) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        const tableContainer = document.getElementById("tableContainer");
-        tableContainer.innerHTML = ""; // Clear previous table
-        const table = document.createElement("table");
-        const thead = document.createElement("thead");
-        const tbody = document.createElement("tbody");
+        const tableContainer = document.querySelector(".table-container");
+        const table = document.getElementById("dataTable");
+        table.innerHTML = ""; // Clear previous table content
 
         const headers = [
           "ID Standar",
-          "Standar",
-          "Isi",
-          "ID Indikator",
-          "Nama Indikator",
-          "Isi Indikator",
-          "ID Prodi Unit",
+          "Nama Standar",
+          "Pernyataan Standar",
           "Prodi Unit",
-          "ID Siklus",
-          "Tahun",
+          "Tahun Periode",
         ];
+
+        const headerMapping = {
+          "ID Standar": "id_standar",
+          "Nama Standar": "standar",
+          "Pernyataan Standar": "isi",
+          "ID Prodi Unit": "id_prodi_unit",
+          "Prodi Unit": "prodi_unit",
+          "ID Siklus": "id_siklus",
+          "Tahun Periode": "tahun",
+        };
+
+        const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
         headers.forEach((header) => {
           const th = document.createElement("th");
@@ -39,20 +44,21 @@ document.getElementById("submitButton").addEventListener("click", function (e) {
           headerRow.appendChild(th);
         });
         thead.appendChild(headerRow);
+        table.appendChild(thead);
 
+        const tbody = document.createElement("tbody");
         data.data.forEach((item) => {
           const row = document.createElement("tr");
-          Object.values(item).forEach((value) => {
+          headers.forEach((header) => {
             const td = document.createElement("td");
-            td.textContent = value;
+            td.textContent = item[headerMapping[header]] || "";
+            td.setAttribute("data-label", header);
             row.appendChild(td);
           });
           tbody.appendChild(row);
         });
-
-        table.appendChild(thead);
         table.appendChild(tbody);
-        tableContainer.appendChild(table);
+
         tableContainer.classList.remove("hidden");
         tableContainer.scrollIntoView({ behavior: "smooth" });
       } else {
