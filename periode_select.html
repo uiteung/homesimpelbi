@@ -21,7 +21,29 @@
 
 		<title>Periode Select </title>
 	</head>
+	<style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 	<body class="lqd-preloader-activated lqd-preloader-style-spinner" data-localscroll-offset="120" data-mobile-nav-breakpoint="1199" data-mobile-nav-style="minimal" data-mobile-nav-scheme="light" data-mobile-nav-trigger-alignment="right" data-mobile-header-scheme="light" data-mobile-logo-alignment="default" data-overlay-onmobile="false">
 
 		<div class="lqd-preloader-wrap lqd-preloader-spinner" data-preloader-options='{"animationType": "fade" }'>
@@ -69,14 +91,14 @@
 										<form class="ld_subscribe_form ld_sf_form relative" method="post" action="#">
 											
 											<p class="ld_sf_paragraph relative">
-												<select class="block w-full rounded-2 text-black-60 bg-white text-13 font-medium mb-20" name="dropdown">
+												<select class="block w-full rounded-2 text-black-60 bg-white text-13 font-medium mb-20" name="dropdown" id="periodeDropdown">
 													<option value="option1">Pilih Periode</option>
-													<option value="option2">Periode 1 2022</option>
-													<option value="option3">Periode 2 2022</option>
+													<option value="2">Periode 1 2022</option>
+													<option value="3">Periode 2 2022</option>
 												</select>
 											</p>
-											<button type="submit" class="inline-flex items-center justify-center m-0 rounded-2 relative text-13 font-medium bg-blue-900 text-white">
-												<span class="submit-text"> <a href="./instrumen_ami.html">Pilih</a> </span>
+											<button type="button" id="submitButton" class="inline-flex items-center justify-center m-0 rounded-2 relative text-13 font-medium bg-blue-900 text-white">
+												<span class="submit-text">Pilih</span>
 												<span class="ld-sf-spinner rounded-full absolute overflow-hidden">
 													<span class="block lqd-overlay flex rounded-full">Sending </span>
 												</span>
@@ -102,7 +124,7 @@
 
 		<!-- Hub wordpress -->
 	
-
+		<script type="module" src="./assets/js/periode-select.js"></script>
 		<script src="./assets/vendors/jquery.min.js"></script>
 		<script src="./assets/vendors/jquery-ui/jquery-ui.min.js"></script>
 		<script src="./assets/vendors/bootstrap/js/bootstrap.min.js"></script>
