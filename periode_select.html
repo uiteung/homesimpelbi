@@ -22,26 +22,85 @@
 		<title>Periode Select </title>
 	</head>
 	<style>
+        body {
+            font-family: 'Golos Text', sans-serif;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid #ddd;
         }
 
         th, td {
-            padding: 15px;
+            padding: 12px 15px;
             text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
         }
 
         th {
+            background-color: #2E56A7;
+            color: white;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
         }
 
         .hidden {
             display: none;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            th, td {
+                display: block;
+                width: 100%;
+            }
+            th {
+                background-color: #2E56A7;
+                text-align: center;
+            }
+            td {
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                text-align: left;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                background-color: #f2f2f2;
+                border-right: 1px solid #ddd;
+                box-sizing: border-box;
+            }
         }
     </style>
 	<body class="lqd-preloader-activated lqd-preloader-style-spinner" data-localscroll-offset="120" data-mobile-nav-breakpoint="1199" data-mobile-nav-style="minimal" data-mobile-nav-scheme="light" data-mobile-nav-trigger-alignment="right" data-mobile-header-scheme="light" data-mobile-logo-alignment="default" data-overlay-onmobile="false">
@@ -107,9 +166,16 @@
 										<div class="ld_sf_response"></div>
 									</div>
 								</div>
-								
+
 							</div>
 							
+						</div>
+					</section>
+					<section class="lqd-section bg-light pt-60 pb-60" id="tableSection">
+						<div class="container table-container hidden">
+							<table id="dataTable">
+								<div id="tableContainer" class="hidden mt-20"></div>
+							</table>
 						</div>
 					</section>
 					<!-- End Banner -->
