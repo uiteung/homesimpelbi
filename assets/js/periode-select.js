@@ -47,7 +47,8 @@ document.getElementById("submitButton").addEventListener("click", function (e) {
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
-        data.data.forEach((item) => {
+        const getalldata = data.data.data_query;
+        getalldata.forEach((item) => {
           const row = document.createElement("tr");
           headers.forEach((header) => {
             const td = document.createElement("td");
