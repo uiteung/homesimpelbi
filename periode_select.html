@@ -22,11 +22,59 @@
 		<title>Periode Select </title>
 	</head>
 	<style>
-    body {
+	body {
     font-family: 'Golos Text', sans-serif;
-    background: #f9f9f9; /* Assuming a light background for the page */
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Enhanced dropdown styles */
+#periodeDropdown {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: auto;
+    vertical-align: middle;
+    background-color: #fff;
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="0,0 20,0 10,10" fill="#333"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+/* Enhanced button styles */
+button.inline-flex {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2E56A7;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.inline-flex:hover {
+    background-color: #1E3B74;
+}
+
+/* Table and pagination styles */
 .table-container {
     overflow-x: auto;
     margin-top: 20px;
@@ -34,9 +82,9 @@
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 95%; /* Set to 95% width to leave some space on the sides */
-    max-width: 1200px; /* Optional: Add a max-width for better visual alignment */
-    margin: 0 auto; /* Center the table-container */
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 table {
@@ -56,12 +104,11 @@ th, td {
     text-align: left;
     vertical-align: top;
     line-height: 1.6;
-
 }
 
 th {
     background-color: #2E56A7;
-    color: white !important; 
+    color: white !important;
     font-weight: bold;
     text-align: center;
 }
@@ -96,16 +143,19 @@ td:last-child {
         display: block;
         width: 100%;
     }
+
     th {
         background-color: #2E56A7;
         text-align: center;
     }
+
     td {
         text-align: right;
         position: relative;
         padding-left: 50%;
         text-align: left;
     }
+
     td:before {
         content: attr(data-label);
         position: absolute;
@@ -119,6 +169,28 @@ td:last-child {
         box-sizing: border-box;
     }
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #2E56A7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
     </style>
 	<body class="lqd-preloader-activated lqd-preloader-style-spinner" data-localscroll-offset="120" data-mobile-nav-breakpoint="1199" data-mobile-nav-style="minimal" data-mobile-nav-scheme="light" data-mobile-nav-trigger-alignment="right" data-mobile-header-scheme="light" data-mobile-logo-alignment="default" data-overlay-onmobile="false">
 
@@ -167,13 +239,13 @@ td:last-child {
 										<form class="ld_subscribe_form ld_sf_form relative" method="post" action="#">
 											
 											<p class="ld_sf_paragraph relative">
-												<select class="block w-full rounded-2 text-black-60 bg-white text-13 font-medium mb-20" name="dropdown" id="periodeDropdown">
+												<select  name="dropdown" id="periodeDropdown">
 													<option value="option1">Pilih Periode</option>
-													<option value="2">Periode 1 2022</option>
-													<option value="3">Periode 2 2022</option>
+													<!-- <option value="2">Periode 1 2022</option>
+													<option value="3">Periode 2 2022</option> -->
 												</select>
 											</p>
-											<button type="button" id="submitButton" class="inline-flex items-center justify-center m-0 rounded-2 relative text-13 font-medium bg-blue-900 text-white">
+                                            <button type="button" id="submitButton" class="inline-flex items-center justify-center m-0 rounded-2 relative text-13 font-medium bg-blue-900 text-white">
 												<span class="submit-text">Pilih</span>
 												<span class="ld-sf-spinner rounded-full absolute overflow-hidden">
 													<span class="block lqd-overlay flex rounded-full">Sending </span>
@@ -192,7 +264,10 @@ td:last-child {
 						<div class="container table-container hidden">
 							<table id="dataTable">
 								<div id="tableContainer" style="color: white;" class="hidden mt-20"></div>
+
 							</table>
+							<div id="paginationContainer" class="pagination"></div>
+
 						</div>
 					</section>
 					<!-- End Banner -->
